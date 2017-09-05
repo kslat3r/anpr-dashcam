@@ -57,7 +57,7 @@ module.exports = {
       });
   },
 
-  getMakeAndModel: (numberPlate) => {
+  getModel: (numberPlate) => {
     let $;
 
     return request.post(checkMotUrl)

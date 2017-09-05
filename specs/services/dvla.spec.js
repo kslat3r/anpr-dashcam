@@ -14,7 +14,7 @@ describe('dvla service', function() {
   it('should have the correct API signature', () => {
     expect(dvlaService).to.be.an('object');
     expect(dvlaService.getInfo).to.be.a('function');
-    expect(dvlaService.getMakeAndModel).to.be.a('function');
+    expect(dvlaService.getModel).to.be.a('function');
   });
 
   it('should return info', (done) => {
@@ -32,11 +32,11 @@ describe('dvla service', function() {
       });
   }).timeout(20000);
 
-  it('should return make/model', (done) => {
+  it('should return model', (done) => {
     const promises = [];
 
     testPlates.forEach((testPlate) => {
-      promises.push(dvlaService.getMakeAndModel(testPlate));
+      promises.push(dvlaService.getModel(testPlate));
     });
 
     Promise.all(promises)
