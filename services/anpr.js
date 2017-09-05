@@ -11,7 +11,7 @@ module.exports = {
         }
 
         if (!out.results.length) {
-          return resolve(false);
+          return reject('Number plate not found');
         }
 
         return resolve(out.results[0].plate);

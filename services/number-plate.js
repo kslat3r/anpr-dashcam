@@ -5,7 +5,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       ukNumberPlates.validate(numberPlate, (err, result) => {
         if (err) {
-          return reject(`${numberPlate} not valid`);
+          return reject(`Number plate ${numberPlate} not valid`);
         }
 
         return resolve(result);
