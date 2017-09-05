@@ -18,7 +18,9 @@
   "homepage": "https://github.com/kslat3r/anpr-dashcam#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "cheerio": "git+https://github.com/cheeriojs/cheerio.git",
     "node-openalpr": "https://github.com/danirg15/node-openalpr",
+    "request-promise": "^4.2.1",
     "uk-numberplates": "0.0.2"
   },
   "devDependencies": {

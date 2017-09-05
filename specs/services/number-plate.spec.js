@@ -1,9 +1,9 @@
 const expect = require('chai').expect;
 const numberPlateService = require('../../services/number-plate');
 
-describe('anpr service', function() {
+describe('number-plate service', function() {
   const testPlates = [
-    'LR33TEE',
+    // 'LR33TEE',
     'EY59YEV',
     'LL66MVK',
     'RK64AGY',
@@ -26,6 +26,11 @@ describe('anpr service', function() {
     Promise.all(promises)
       .then((results) => {
         console.log(results);
+
+        return done();
+      })
+      .catch((err) => {
+        console.log(err);
 
         return done();
       })
