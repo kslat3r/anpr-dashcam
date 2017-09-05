@@ -3,7 +3,6 @@ const numberPlateService = require('../../services/number-plate');
 
 describe('number-plate service', function() {
   const testPlates = [
-    // 'LR33TEE',
     'EY59YEV',
     'LL66MVK',
     'RK64AGY',
