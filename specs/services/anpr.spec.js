@@ -22,5 +22,5 @@ describe('anpr service', function() {
     }));
 
     console.log(results);
-  });
+  }).timeout(60000);
 });

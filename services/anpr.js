@@ -3,7 +3,7 @@ const anpr = Promise.promisifyAll(require('node-openalpr'));
 
 module.exports = {
   getNumberPlate: async (filePath) => {
-    anpr.Start('eu');
+    anpr.Start(null, null, null, null, 'eu');
 
     let out;
 
