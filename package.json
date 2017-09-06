@@ -23,6 +23,7 @@
     "express": "^4.15.4",
     "moment": "^2.18.1",
     "node-openalpr": "https://github.com/Sneko/node-openalpr",
+    "raspicam": "^0.2.14",
     "request-promise": "^4.2.1",
     "socket.io": "^2.0.3",
     "uk-numberplates": "0.0.2"
