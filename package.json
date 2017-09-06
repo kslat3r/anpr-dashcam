@@ -20,6 +20,8 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "cheerio": "git+https://github.com/cheeriojs/cheerio.git",
+    "express": "^4.15.4",
+    "moment": "^2.18.1",
     "node-openalpr": "https://github.com/danirg15/node-openalpr",
     "request-promise": "^4.2.1",
     "socket.io": "^2.0.3",

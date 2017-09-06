@@ -1,4 +1,5 @@
 const anprService = require('../services/anpr');
+const cacheService = require('../services/cache');
 const numberPlateService = require('../services/number-plate');
 const dvlaService = require('../services/dvla');
 
@@ -9,6 +10,13 @@ module.exports = async () => {
     numberPlate = await anprService.getNumberPlate(`${__dirname}/../specs/data/anpr/4.png`);
   } catch (e) {
     throw e;
+  }
+
+  const cacheKey = `VEHICLE_${numberPlate}`;
+  const cached = cacheService.get(cacheKey);
+
+  if (cached) {
+    return cached;
   }
 
   let numberPlateDetails;
@@ -35,10 +43,14 @@ module.exports = async () => {
     throw e;
   }
 
-  return {
+  const vehicle = {
     numberPlate,
     numberPlateDetails,
     dvlaDetails,
     model,
   };
+
+  cacheService.set(cacheKey, vehicle);
+
+  return vehicle;
 };
