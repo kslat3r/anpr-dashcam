@@ -15,23 +15,11 @@ describe('number-plate service', function() {
     expect(numberPlateService.getInfo).to.be.a('function');
   });
 
-  it('should return info', (done) => {
-    const promises = [];
+  it('should return info', async () => {
+    const results = await Promise.all(testPlates.map((testPlate) => {
+      return numberPlateService.getInfo(testPlate);
+    }));
 
-    testPlates.forEach((testPlate) => {
-      promises.push(numberPlateService.getInfo(testPlate));
-    });
-
-    Promise.all(promises)
-      .then((results) => {
-        console.log(results);
-
-        return done();
-      })
-      .catch((err) => {
-        console.log(err);
-
-        return done();
-      })
+    console.log(results);
   });
 });

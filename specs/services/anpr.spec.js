@@ -16,18 +16,11 @@ describe('anpr service', function() {
     expect(anprService.getNumberPlate).to.be.a('function');
   });
 
-  it('should recognise number plates correctly', (done) => {
-    const promises = [];
+  it('should recognise number plates correctly', async () => {
+    const results = await Promise.all(filePaths.map((filePath) => {
+      return anprService.getNumberPlate(filePath);
+    }));
 
-    filePaths.forEach((filePath) => {
-      promises.push(anprService.getNumberPlate(filePath));
-    });
-
-    Promise.all(promises)
-      .then((results) => {
-        console.log(results);
-
-        return done();
-      })
+    console.log(results);
   });
 });

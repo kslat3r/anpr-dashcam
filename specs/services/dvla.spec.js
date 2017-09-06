@@ -17,33 +17,19 @@ describe('dvla service', function() {
     expect(dvlaService.getModel).to.be.a('function');
   });
 
-  it('should return info', (done) => {
-    const promises = [];
+  it('should return info', async () => {
+    const results = await Promise.all(testPlates.map((testPlate) => {
+      return dvlaService.getInfo(testPlate);
+    }));
 
-    testPlates.forEach((testPlate) => {
-      promises.push(dvlaService.getInfo(testPlate));
-    });
-
-    Promise.all(promises)
-      .then((results) => {
-        console.log(results);
-
-        return done();
-      });
+    console.log(results);
   }).timeout(20000);
 
-  it('should return model', (done) => {
-    const promises = [];
+  it('should return model', async () => {
+    const results = await Promise.all(testPlates.map((testPlate) => {
+      return dvlaService.getModel(testPlate);
+    }));
 
-    testPlates.forEach((testPlate) => {
-      promises.push(dvlaService.getModel(testPlate));
-    });
-
-    Promise.all(promises)
-      .then((results) => {
-        console.log(results);
-
-        return done();
-      });
+    console.log(results);
   }).timeout(20000);
 });
