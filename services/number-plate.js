@@ -1,15 +1,16 @@
-const ukNumberPlates = require('uk-numberplates');
+const Promise = require('bluebird');
+const ukNumberPlates = Promise.promisifyAll(require('uk-numberplates'));
 
 module.exports = {
-  getInfo: (numberPlate) => {
-    return new Promise((resolve, reject) => {
-      ukNumberPlates.validate(numberPlate, (err, result) => {
-        if (err) {
-          return reject(`Number plate ${numberPlate} not valid`);
-        }
+  getInfo: async (numberPlate) => {
+    let result;
 
-        return resolve(result);
-      });
-    });
+    try {
+      result = await ukNumberPlates.validateAsync(numberPlate);
+    } catch (e) {
+      throw new Error(`Number plate ${numberPlate} not valid`);
+    }
+
+    return result;
   },
-}
+};

@@ -1,21 +1,22 @@
-const anpr = require('node-openalpr');
+const Promise = require('bluebird');
+const anpr = Promise.promisifyAll(require('node-openalpr'));
 
 module.exports = {
-  getNumberPlate: (filePath) => {
+  getNumberPlate: async (filePath) => {
     anpr.Start('eu');
 
-    return new Promise((resolve, reject) => {
-      return anpr.IdentifyLicense(filePath, (err, out) => {
-        if (err) {
-          return reject(err);
-        }
+    let out;
 
-        if (!out.results.length) {
-          return reject('Number plate not found');
-        }
+    try {
+      out = await anpr.IdentifyLicenseAsync(filePath);
+    } catch (e) {
+      throw e;
+    }
 
-        return resolve(out.results[0].plate);
-      });
-    });
+    if (!out.results.length) {
+      throw new Error('Number plate not found');
+    }
+
+    return out.results[0].plate;
   },
 }
