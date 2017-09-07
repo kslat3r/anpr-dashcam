@@ -3,11 +3,11 @@ const cacheService = require('../services/cache');
 const numberPlateService = require('../services/number-plate');
 const dvlaService = require('../services/dvla');
 
-module.exports = async () => {
+module.exports = async (filePath) => {
   let vehicle = {};
 
   try {
-    vehicle.numberPlate = await anprService.getNumberPlate(`${__dirname}/../specs/data/anpr/4.png`);
+    vehicle.numberPlate = await anprService.getNumberPlate(filePath);
   } catch (e) {
     // empty block
   }

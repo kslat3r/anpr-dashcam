@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
 const clientsService = require('./services/clients');
+const photoFacade = require('./facades/photo');
 
 const app = express();
 
@@ -18,5 +19,8 @@ io.on('connection', (client) => {
   });
 });
 
+const start = async () => {
+  await photoFacade();
+};
 
-server.listen(process.env.PORT || 3000);
+server.listen(6000);

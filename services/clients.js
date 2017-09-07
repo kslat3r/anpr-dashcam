@@ -13,9 +13,9 @@ module.exports = {
     delete clients[client.id];
   },
 
-  get: () => {
-    return Object.keys(clients).map((key) => {
-      return clients[key];
+  emit: (event, data) => {
+    Object.keys(clients).forEach((key) => {
+      clients[key].emit(event, data);
     });
   },
 };
