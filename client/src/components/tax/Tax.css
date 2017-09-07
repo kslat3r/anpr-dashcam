@@ -1,0 +1,10 @@
+.tax {
+  margin: 0px 20px 0px 10px;
+  font-size: 200%;
+  box-shadow: none;
+  border: 0;
+}
+
+.tax .list-group-item {
+  border: 0;
+}

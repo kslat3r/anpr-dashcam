@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "halogen": "^0.2.0",
     "immutable": "^3.8.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",

@@ -4,3 +4,13 @@ body {
   font-family: sans-serif;
   background-color: #252830;
 }
+
+.valid {
+  background-color: #117700;
+  color: #fff;
+}
+
+.invalid {
+  background-color: #bb0000;
+  color: #fff;
+}

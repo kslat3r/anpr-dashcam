@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import Loading from '../loading/Loading';
 import './Details.css';
 
 class Details extends Component {
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    details: PropTypes.object.isRequired,
   }
 
   shouldComponentUpdate(nextProps) {
-    if (this.props.data.numberPlate !== nextProps.data.numberPlate) {
+    if (this.props.details.incoming !== nextProps.details.incoming) {
+      return true;
+    }
+
+    if (this.props.details.item.numberPlate !== nextProps.details.item.numberPlate) {
       return true;
     }
 
@@ -17,16 +22,16 @@ class Details extends Component {
   }
 
   render() {
-    if (Object.keys(this.props.data).length === 0) {
-      return null;
-    }
-
-    const data = this.props.data;
+    const data = this.props.details.item;
     const dvlaDetails = data.dvlaDetails;
     const numberPlateDetails = data.numberPlateDetails;
 
     return (
       <div className="details">
+        {this.props.details.incoming ? (
+          <Loading />
+        ) : null}
+
         <ListGroup>
           <ListGroupItem header="Date of registration">
             {dvlaDetails && dvlaDetails.dateOfRegistration ? dvlaDetails.dateOfRegistration : 'Unknown'}

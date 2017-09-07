@@ -4,4 +4,5 @@
   border-radius: 0;
   height: 75vh;
   overflow-y: scroll;
+  border-bottom: 5px solid #000;
 }

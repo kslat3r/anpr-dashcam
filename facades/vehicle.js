@@ -18,9 +18,9 @@ module.exports = async (filePath) => {
     const cacheKey = `VEHICLE_${vehicle.numberPlate}`;
     const cachedVehicle = cacheService.get(cacheKey);
 
-    if (cachedVehicle) {
-      vehicle = cachedVehicle;
-    } else {
+    // if (cachedVehicle) {
+    //   vehicle = cachedVehicle;
+    // } else {
       try {
         vehicle.numberPlateDetails = await numberPlateService.getInfo(vehicle.numberPlate);
       } catch (e) {
@@ -43,7 +43,7 @@ module.exports = async (filePath) => {
 
       cacheService.set(cacheKey, vehicle);
     }
-  }
+  // }
 
   clientsService.emit(events.DETAILS_SEND, vehicle);
 };

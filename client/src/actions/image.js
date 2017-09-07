@@ -1,4 +1,5 @@
 import * as socketService from '../services/socket';
+import * as detailsActions from './details';
 
 export const IMAGE_RESET = 'IMAGE_RESET';
 export const IMAGE_LISTENING = 'IMAGE_LISTENING';
@@ -20,9 +21,13 @@ export function listen () {
 
     socketService.bind(IMAGE_SEND, (image) => {
       dispatch({
+        type: detailsActions.DETAILS_INCOMING,
+      });
+
+      dispatch({
         type: IMAGE_RECEIVED,
         data: image,
-      })
+      });
     });
   };
 }
