@@ -1,7 +1,26 @@
-.details .list-group {
-  background-color: #fff;
-  margin-bottom: 0;
-  border-radius: 0;
-  height: 75vh;
-  overflow-y: scroll;
+.container .jumbotron {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  border: 10px solid #000;
+  text-align: center;
+  margin-top: -200px;
+}
+
+.container .jumbotron.invalid {
+  background-color: #ddd;
+}
+
+.container .jumbotron.valid {
+  background-color: #CA920B;
+}
+
+.container .jumbotron h1 {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  font-family: monospace;
 }

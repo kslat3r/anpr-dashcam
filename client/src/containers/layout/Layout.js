@@ -34,21 +34,16 @@ class Layout extends Component {
         {this.props.image ? (
           <Grid>
             <Row>
-              <Col xs={9}>
+              <Col xs={9} className="image-cont">
                 <Image data={this.props.image} />
+                <Numberplate data={this.props.details} />
               </Col>
               <Col xs={3}>
                 <Details data={this.props.details} />
               </Col>
             </Row>
             <Row>
-              <Col xs={9}>
-                <Row>
-                  <Col xs={12}>
-                    <Numberplate data={this.props.details} />
-                  </Col>
-                </Row>
-
+              <Col xs={12}>
                 <Row>
                   <Col xs={6}>
                     <Make data={this.props.details} />

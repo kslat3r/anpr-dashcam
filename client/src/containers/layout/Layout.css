@@ -9,3 +9,7 @@ body .container .col-xs-3,
 body .container .col-xs-9 {
   padding: 0;
 }
+
+.image-cont {
+  text-align: center;
+}

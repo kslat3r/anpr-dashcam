@@ -2,4 +2,5 @@ img.photo {
   min-height: 75vh;
   max-height: 75vh;
   width: 100%;
+  border: 5px solid #000;
 }
