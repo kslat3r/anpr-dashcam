@@ -74,7 +74,12 @@ module.exports = {
     }
 
     const $ = cheerio.load(html);
+    const model = $('#content > h1').text().split(' ').pop();
 
-    return $('#content > h1').text().split(' ').pop();
+    if (model && model !== '') {
+      return model;
+    }
+
+    throw new Error('Could not find model');
   },
 };

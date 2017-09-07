@@ -29,4 +29,4 @@ io.on('connection', (client) => {
 
 photoFacade();
 
-server.listen(6000);
+server.listen(3000);

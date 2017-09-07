@@ -2,6 +2,8 @@ const anprService = require('../services/anpr');
 const cacheService = require('../services/cache');
 const numberPlateService = require('../services/number-plate');
 const dvlaService = require('../services/dvla');
+const clientsService = require('../services/clients');
+const events = require('../constants/events');
 
 module.exports = async (filePath) => {
   let vehicle = {};
@@ -14,36 +16,34 @@ module.exports = async (filePath) => {
 
   if (vehicle.numberPlate) {
     const cacheKey = `VEHICLE_${vehicle.numberPlate}`;
-    const cached = cacheService.get(cacheKey);
+    const cachedVehicle = cacheService.get(cacheKey);
 
-    if (cached) {
-      return cached;
-    }
+    if (cachedVehicle) {
+      vehicle = cachedVehicle;
+    } else {
+      try {
+        vehicle.numberPlateDetails = await numberPlateService.getInfo(vehicle.numberPlate);
+      } catch (e) {
+        // empty block
+      }
 
-    try {
-      vehicle.numberPlateDetails = await numberPlateService.getInfo(vehicle.numberPlate);
-    } catch (e) {
-      // empty block
-    }
+      try {
+        vehicle.dvlaDetails = await dvlaService.getInfo(vehicle.numberPlate);
+      } catch (e) {
+        // empty block
+      }
 
-    try {
-      vehicle.dvlaDetails = await dvlaService.getInfo(vehicle.numberPlate);
-    } catch (e) {
-      // empty block
-    }
+      try {
+        vehicle.model = await dvlaService.getModel(vehicle.numberPlate);
+      } catch (e) {
+        // empty block
+      }
 
-    try {
-      vehicle.model = await dvlaService.getModel(vehicle.numberPlate);
-    } catch (e) {
-      // empty block
-    }
+      // save in cache
 
-    if (vehicle.numberPlateDetails && vehicle.dvlaDetails && vehicle.model) {
       cacheService.set(cacheKey, vehicle);
     }
   }
 
-  console.log(vehicle);
-
-  return vehicle;
+  clientsService.emit(events.DETAILS_SEND, vehicle);
 };
