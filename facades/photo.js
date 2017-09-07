@@ -4,7 +4,7 @@ const clientsService = require('../services/clients');
 const events = require('../constants/events');
 const vehicleFacade = require('./vehicle');
 
-module.exports = async () => {
+module.exports = () => {
   cameraService.startTimelapse((filePath) => {
     // send image to clients
 
