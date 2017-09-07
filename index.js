@@ -8,7 +8,7 @@ const app = express();
 
 // static
 
-app.use('/app', express.static(__dirname + '/client/build'));
+app.use('/', express.static(__dirname + '/client/build'));
 
 // server and io
 
