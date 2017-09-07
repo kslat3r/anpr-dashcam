@@ -1,32 +1,34 @@
-const express = require('express');
-const http = require('http');
-const socketio = require('socket.io');
-const clientsService = require('./services/clients');
-const photoFacade = require('./facades/photo');
+const electron = require('electron')
+const server = require('./server');
 
-const app = express();
+let mainWindow
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
 
-// static
+const createWindow = () => {
+  mainWindow = new BrowserWindow({
+    kiosk: true,
+  })
 
-app.use('/', express.static(__dirname + '/client/build'));
+  mainWindow.loadURL('http://localhost:3000')
 
-// server and io
-
-const server = http.createServer(app);
-const io = socketio(server);
-
-// add to clients on connection
-
-io.on('connection', (client) => {
-  clientsService.add(client);
-
-  client.on('disconnect', () => {
-    clientsService.remove(client);
+  mainWindow.on('closed', () => {
+    mainWindow = null
   });
+};
+
+app.on('ready', createWindow);
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
 });
 
-// let's go
+app.on('activate', () => {
+  if (mainWindow === null) {
+    createWindow();
+  }
+});
 
-photoFacade();
-
-server.listen(3000);
+server();
