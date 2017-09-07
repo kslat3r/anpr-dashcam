@@ -1,24 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as DetailsActions from '../../actions/details';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import './Details.css';
 
 class Details extends Component {
   static propTypes = {
-    details: PropTypes.object.isRequired,
-
-    detailsActions: PropTypes.object.isRequired,
-  }
-
-  componentWillMount() {
-    this.props.detailsActions.listen();
+    data: PropTypes.object.isRequired,
   }
 
   shouldComponentUpdate(nextProps) {
-    if (this.props.details.item.numberPlate !== nextProps.details.item.numberPlate) {
+    if (this.props.data.numberPlate !== nextProps.data.numberPlate) {
       return true;
     }
 
@@ -26,13 +17,13 @@ class Details extends Component {
   }
 
   render() {
-    if (Object.keys(this.props.details.item).length === 0) {
+    if (Object.keys(this.props.data).length === 0) {
       return null;
     }
 
-    const details = this.props.details.item;
-    const dvlaDetails = details.dvlaDetails;
-    const numberPlateDetails = details.numberPlateDetails;
+    const data = this.props.data;
+    const dvlaDetails = data.dvlaDetails;
+    const numberPlateDetails = data.numberPlateDetails;
 
     return (
       <div className="details">
@@ -86,16 +77,4 @@ class Details extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    details: state.details.toJS(),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    detailsActions: bindActionCreators(DetailsActions, dispatch),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Details);
+export default Details;
