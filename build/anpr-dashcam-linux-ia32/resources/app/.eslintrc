@@ -1,0 +1,35 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "browser": true,
+    "jquery": true,
+    "mocha": true,
+    "jasmine": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": 1
+    }
+  },
+  "rules": {
+    "max-len": 0,
+    "camelcase": 0,
+    "func-names": 0,
+    "consistent-return": 0,
+    "arrow-body-style": 0,
+    "object-shorthand": 0,
+    "no-underscore-dangle": 0,
+    "strict": 0,
+    "global-require": 0,
+    "newline-per-chained-call": 0,
+    "no-console": 0
+  },
+  "globals": {
+    "$": true,
+    "document": true,
+    "alert": true
+  }
+}

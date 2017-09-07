@@ -1,0 +1,11 @@
+.model {
+  margin: 20px 20px 0px 10px;
+  font-size: 200%;
+  box-shadow: none;
+  border: 0;
+}
+
+.model .list-group-item {
+  border: 0;
+}
+

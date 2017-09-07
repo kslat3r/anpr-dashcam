@@ -1,0 +1,28 @@
+.container .jumbotron {
+  position: relative;
+  z-index: 5;
+  padding: 0;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  border: 10px solid #000;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  margin-top: -120px;
+}
+
+.container .jumbotron.invalid {
+  background-color: #ddd;
+}
+
+.container .jumbotron.valid {
+  background-color: #CA920B;
+}
+
+.container .jumbotron h1 {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  font-family: monospace;
+}
