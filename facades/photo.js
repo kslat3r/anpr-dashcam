@@ -6,9 +6,11 @@ const vehicleFacade = require('./vehicle');
 
 module.exports = () => {
   cameraService.startTimelapse((filePath) => {
+    console.log(filePath);
+
     // send image to clients
 
-    const fileData = fs.readSync(filePath);
+    const fileData = fs.readFileSync(filePath);
     const fileDataBase64 = fileData.toString('base64');
 
     clientsService.emit(events.IMAGE_SEND, fileDataBase64);

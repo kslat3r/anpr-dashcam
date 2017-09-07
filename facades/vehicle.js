@@ -12,7 +12,7 @@ module.exports = async (filePath) => {
     // empty block
   }
 
-  if (numberPlate) {
+  if (vehicle.numberPlate) {
     const cacheKey = `VEHICLE_${vehicle.numberPlate}`;
     const cached = cacheService.get(cacheKey);
 
@@ -42,6 +42,8 @@ module.exports = async (filePath) => {
       cacheService.set(cacheKey, vehicle);
     }
   }
+
+  console.log(vehicle);
 
   return vehicle;
 };
