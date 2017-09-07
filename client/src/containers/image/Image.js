@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as ImageActions from '../../actions/image';
+import { Image as BootstrapImage } from 'react-bootstrap';
 import './Image.css';
 
 class Image extends Component {
@@ -22,9 +23,10 @@ class Image extends Component {
     }
 
     return (
-      <img
+      <BootstrapImage
+        responsive
+        className="photo"
         src={`data:image/jpeg;base64,${this.props.image.item}`}
-        alt=""
       />
     );
   }

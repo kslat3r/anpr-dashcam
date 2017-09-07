@@ -1,0 +1,7 @@
+.details .list-group {
+  background-color: #fff;
+  margin-bottom: 0;
+  border-radius: 0;
+  height: 75vh;
+  overflow-y: scroll;
+}
