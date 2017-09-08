@@ -17,6 +17,21 @@ module.exports = {
       throw new Error('Number plate not found');
     }
 
-    return out.results[0].plate;
+    const plate = out.results[0].plate;
+    let parts = plate.split('');
+
+    parts = parts.map((part) => {
+      if (part === 'I') {
+        return '1';
+      }
+
+      if (part === '0' || part === 'Q') {
+        return 'O';
+      }
+
+      return part;
+    });
+
+    return parts.join('');
   },
 }

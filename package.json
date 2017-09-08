@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "start:dev": "nodemon .",
+    "start:dev": "nodemon ./server",
     "test": "mocha specs/**/*.spec.js",
     "build": "pkg index.js --out-path ./build --target node8.0.0-macos-x64"
   },

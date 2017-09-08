@@ -34,7 +34,7 @@ module.exports = {
 
   startTimelapseMock: (cb) => {
     setInterval(() => {
-      const num = Math.floor(Math.random() * 8) + 1;
+      const num = Math.floor(Math.random() * 12) + 1;
       const filePath = `${__dirname}/../specs/data/anpr/${num}.png`;
 
       cb(filePath);
