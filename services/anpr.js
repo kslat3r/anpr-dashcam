@@ -25,7 +25,7 @@ module.exports = {
         return '1';
       }
 
-      if (part === '0' || part === 'Q') {
+      if (part === 'Q') {
         return 'O';
       }
 
