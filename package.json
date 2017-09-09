@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
+    "start": "node .",
     "start:dev": "nodemon .",
-    "test": "mocha specs/**/*.spec.js",
-    "build": "pkg index.js --out-path ./build --target node8.0.0-macos-x64"
+    "test": "mocha specs/**/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +31,6 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "electron": "1.7.6",
     "eslint": "^4.6.1",
     "mocha": "^3.5.0",
     "nodemon": "^1.12.0"
