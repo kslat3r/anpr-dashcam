@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "start:dev": "nodemon .",
-    "test": "mocha specs/**/*.spec.js"
+  "start": "node .",
+  "start:dev": "nodemon .",
+  "test": "mocha specs/**/*.spec.js"
   },
   "repository": {
     "type": "git",

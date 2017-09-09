@@ -4,7 +4,7 @@ const socketio = require('socket.io');
 const clientsService = require('./services/clients');
 const photoFacade = require('./facades/photo');
 
-module.exports = () => {
+const startServer = () => {
   const app = express();
 
   // static
@@ -32,3 +32,9 @@ module.exports = () => {
 
   server.listen(3000);
 };
+
+module.exports = startServer;
+
+if (require.main === module) {
+  startServer();
+}
