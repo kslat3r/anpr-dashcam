@@ -20,16 +20,16 @@ A Node.js/React application designed to run on the Raspberry Pi v3 with touchscr
 
 * Install Homebrew
 * `brew install homebrew/science/openalpr`
-* npm install
-* (On local machine) MOCK=true npm start
-* (On Raspberry Pi) npm start
+* `npm install`
+* (On local machine) `MOCK=true npm start`
+* (On Raspberry Pi) `npm start`
 
 ### Windows
 
 * Install openalpr (?)
-* npm install
-* (On local machine) MOCK=true npm start
-* (On Raspberry Pi) npm start
+* `npm install`
+* (On local machine) `MOCK=true npm start`
+* (On Raspberry Pi) `npm start`
 
 ## Running the client
 
