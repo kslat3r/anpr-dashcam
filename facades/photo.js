@@ -5,7 +5,13 @@ const events = require('../constants/events');
 const vehicleFacade = require('./vehicle');
 
 module.exports = () => {
-  cameraService.startTimelapseMock((filePath) => {
+  let method = 'startTimelapse';
+
+  if (process.env.MOCK) {
+    method = 'startTimelapseMock';
+  }
+
+  cameraService[method]((filePath) => {
     // send image to clients
 
     const fileData = fs.readFileSync(filePath);
