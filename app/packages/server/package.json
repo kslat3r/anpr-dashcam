@@ -23,7 +23,6 @@
     "cheerio": "git+https://github.com/cheeriojs/cheerio.git",
     "express": "^4.15.4",
     "moment": "^2.18.1",
-    "node-openalpr": "https://github.com/Sneko/node-openalpr",
     "raspicam": "^0.2.14",
     "request": "^2.83.0",
     "request-promise": "^4.2.1",

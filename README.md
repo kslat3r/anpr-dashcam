@@ -14,32 +14,13 @@ A Node.js/React application designed to run on the Raspberry Pi v3 with touchscr
 * openalpr (https://github.com/openalpr/openalpr)
 * Node v8.4.0 (recommended)
 
-## Running the server
+## Building the application
 
-### OSX
+* docker build -t anpr-dashcam:latest .
 
-* Install Homebrew
-* `brew install homebrew/science/openalpr`
-* `npm install`
-* (On local machine) `MOCK=true npm start`
-* (On Raspberry Pi) `npm start`
+## Running the application
 
-### Windows
-
-* Install openalpr (?)
-* `npm install`
-* (On local machine) `MOCK=true npm start`
-* (On Raspberry Pi) `npm start`
-
-## Running the client
-
-From root directory:
-
-* `cd client/`
-* `npm install`
-* `npm start`
-
-If a prompt is presented asking for a different port to run the client on, please accept and the application will be spawned in your browser.
+docker run -it -p 3000:3000 -p 4000:4000 -e MOCK=true anpr-dashcam:latest
 
 ## Disclaimer
 

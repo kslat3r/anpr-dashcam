@@ -1,14 +1,25 @@
-const Promise = require('bluebird');
-const anpr = Promise.promisifyAll(require('node-openalpr'));
+const exec = require('child_process').exec;
+
+const identifyLicense = (filePath) => new Promise((resolve, reject) => {
+  exec(`alpr -c eu -j ${filePath}`, (err, stdout, stderr) => {
+    if (err) {
+      return reject(err);
+    }
+
+    if (stderr) {
+      return reject(JSON.parse(stderr));
+    }
+
+    return resolve(JSON.parse(stdout));
+  })
+});
 
 module.exports = {
   getNumberPlate: async (filePath) => {
-    anpr.Start(null, null, null, null, 'eu');
-
     let out;
 
     try {
-      out = await anpr.IdentifyLicenseAsync(filePath);
+      out = await identifyLicense(filePath);
     } catch (e) {
       throw e;
     }

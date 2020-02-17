@@ -30,7 +30,7 @@ const startServer = () => {
 
   photoFacade();
 
-  server.listen(3000);
+  server.listen(4000);
 };
 
 module.exports = startServer;
