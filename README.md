@@ -1,6 +1,6 @@
 # anpr-dashcam
 
-![Preview](https://github.com/kslat3r/anpr-dashcam/raw/master/example.png)
+![Preview](https://raw.githubusercontent.com/kslat3r/anpr-dashcam/master/app/example.png)
 
 This application takes photos of the road ahead, scans for a number plate and displays any information found from the DVLA (UK) for that number plate.
 
