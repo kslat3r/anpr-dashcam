@@ -16,11 +16,11 @@ A Node.js/React application designed to run on the Raspberry Pi v3 with touchscr
 
 ## Building the application
 
-* docker build -t anpr-dashcam:latest .
+`docker build -t anpr-dashcam:latest .`
 
 ## Running the application
 
-docker run -it -p 3000:3000 -p 4000:4000 -e MOCK=true anpr-dashcam:latest
+`docker run -it -p 3000:3000 -p 4000:4000 -e MOCK=true anpr-dashcam:latest`
 
 ## Disclaimer
 
