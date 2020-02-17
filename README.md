@@ -11,8 +11,7 @@ A Node.js/React application designed to run on the Raspberry Pi v3 with touchscr
 
 ## Prerequisites
 
-* openalpr (https://github.com/openalpr/openalpr)
-* Node v8.4.0 (recommended)
+* Docker
 
 ## Building the application
 
